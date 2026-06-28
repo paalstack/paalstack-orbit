@@ -1,15 +1,15 @@
 import { LuArrowLeft, LuPencil } from '@paalstack/react-icons/lu';
 import {
   Box,
-  VStack,
-  HStack,
+  Button,
   Card,
   Grid,
   GridItem,
-  Button,
+  HStack,
   TypographyH1,
   TypographyMuted,
   TypographySmall,
+  VStack,
 } from '@paalstack/react-ui';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -17,8 +17,6 @@ import { notFound } from 'next/navigation';
 import { getLead } from '@/actions/orbit/leads';
 import { ActivityFeed } from '@/components/orbit/activities/ActivityFeed';
 import { LeadStatusBadge } from '@/components/orbit/leads/LeadStatusBadge';
-
-import type { LeadWithAssignee } from '@/types/orbit';
 
 type LeadDetailPageProps = {
   params: Promise<{ id: string }>;
@@ -30,7 +28,7 @@ const LeadDetailPage = async ({ params }: LeadDetailPageProps) => {
 
   if (result.error || !result.data) notFound();
 
-  const lead = result.data as LeadWithAssignee;
+  const lead = result.data;
 
   return (
     <Box>
@@ -39,7 +37,7 @@ const LeadDetailPage = async ({ params }: LeadDetailPageProps) => {
           asChild
           variant="ghost"
           size="sm"
-          className="cursor-pointer text-muted-foreground hover:text-foreground"
+          className="text-muted-foreground hover:text-foreground cursor-pointer"
         >
           <Link href="/leads">
             <LuArrowLeft className="mr-1 size-4" />
@@ -61,7 +59,7 @@ const LeadDetailPage = async ({ params }: LeadDetailPageProps) => {
             asChild
             variant="outline"
             size="sm"
-            className="cursor-pointer border-border text-muted-foreground hover:text-foreground"
+            className="border-border text-muted-foreground hover:text-foreground cursor-pointer"
           >
             <Link href={`/leads/${id}/edit`}>
               <LuPencil className="mr-1 size-3" />
@@ -102,8 +100,12 @@ const LeadDetailPage = async ({ params }: LeadDetailPageProps) => {
                 },
               ].map(({ label, value }) => (
                 <Box key={label}>
-                  <TypographySmall className="font-medium text-muted-foreground">{label}</TypographySmall>
-                  <TypographyMuted className="text-muted-foreground">{value ?? '—'}</TypographyMuted>
+                  <TypographySmall className="text-muted-foreground font-medium">
+                    {label}
+                  </TypographySmall>
+                  <TypographyMuted className="text-muted-foreground">
+                    {value ?? '—'}
+                  </TypographyMuted>
                 </Box>
               ))}
             </VStack>

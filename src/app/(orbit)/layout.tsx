@@ -9,7 +9,7 @@ const OrbitLayout = async ({ children }: { children: React.ReactNode }) => {
   const { user } = await requireAuth();
 
   return (
-    <Flex className="min-h-screen bg-background">
+    <Flex className="bg-background min-h-screen">
       <OrbitSidebar />
       <Box className="flex flex-1 flex-col">
         <OrbitTopBar user={user} />

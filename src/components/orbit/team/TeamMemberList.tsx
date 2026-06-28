@@ -3,23 +3,23 @@
 import { LuTrash2 } from '@paalstack/react-icons/lu';
 import {
   Box,
-  VStack,
-  HStack,
-  Card,
   Button,
+  Card,
+  HStack,
   Select,
   toast,
   TypographyMuted,
-  TypographySmall,
   TypographyP,
+  TypographySmall,
+  VStack,
 } from '@paalstack/react-ui';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
-import { getTeamMembers, updateTeamMemberRole, removeTeamMember } from '@/actions/orbit/team';
+import { getTeamMembers, removeTeamMember, updateTeamMemberRole } from '@/actions/orbit/team';
 
 import { RoleBadge } from './RoleBadge';
 
-import type { TeamRole, TeamMemberWithProfile } from '@/types/orbit';
+import type { TeamRole } from '@/types/orbit';
 
 const ROLE_OPTIONS = [
   { label: 'Admin', value: 'admin' },
@@ -67,31 +67,27 @@ export const TeamMemberList = () => {
     return <TypographyMuted>Loading team...</TypographyMuted>;
   }
 
-  const members = (result?.data ?? []) as TeamMemberWithProfile[];
+  const members = result?.data ?? [];
 
   if (members.length === 0) {
-    return (
-      <TypographyMuted className="py-8 text-center">
-        No team members yet.
-      </TypographyMuted>
-    );
+    return <TypographyMuted className="py-8 text-center">No team members yet.</TypographyMuted>;
   }
 
   return (
     <Card contentClassName="p-0" className="overflow-hidden">
       <Box as="table" className="w-full text-sm">
-        <Box as="thead" className="border-b border-border">
+        <Box as="thead" className="border-border border-b">
           <Box as="tr">
-            <Box as="th" className="px-4 py-3 text-left font-medium text-muted-foreground">
+            <Box as="th" className="text-muted-foreground px-4 py-3 text-left font-medium">
               Member
             </Box>
-            <Box as="th" className="px-4 py-3 text-left font-medium text-muted-foreground">
+            <Box as="th" className="text-muted-foreground px-4 py-3 text-left font-medium">
               Email
             </Box>
-            <Box as="th" className="px-4 py-3 text-left font-medium text-muted-foreground">
+            <Box as="th" className="text-muted-foreground px-4 py-3 text-left font-medium">
               Role
             </Box>
-            <Box as="th" className="px-4 py-3 text-left font-medium text-muted-foreground">
+            <Box as="th" className="text-muted-foreground px-4 py-3 text-left font-medium">
               Actions
             </Box>
           </Box>
@@ -101,14 +97,14 @@ export const TeamMemberList = () => {
             <Box
               as="tr"
               key={member.id}
-              className="border-b border-border last:border-0 hover:bg-muted/40"
+              className="border-border hover:bg-muted/40 border-b last:border-0"
             >
               <Box as="td" className="px-4 py-3">
                 <HStack className="items-center gap-3">
-                  <Box className="flex size-8 items-center justify-center rounded-full bg-muted text-sm font-semibold text-muted-foreground">
+                  <Box className="bg-muted text-muted-foreground flex size-8 items-center justify-center rounded-full text-sm font-semibold">
                     {(member.profile?.full_name ?? member.profile?.email ?? '?')[0]?.toUpperCase()}
                   </Box>
-                  <TypographyP className="font-medium text-foreground">
+                  <TypographyP className="text-foreground font-medium">
                     {member.profile?.full_name ?? 'Unknown'}
                   </TypographyP>
                 </HStack>
@@ -135,7 +131,7 @@ export const TeamMemberList = () => {
                   variant="ghost"
                   size="sm"
                   disabled={isRemoving}
-                  className="cursor-pointer text-destructive hover:text-destructive/80"
+                  className="text-destructive hover:text-destructive/80 cursor-pointer"
                   onClick={() => removeMember(member.id)}
                 >
                   <LuTrash2 className="size-4" />

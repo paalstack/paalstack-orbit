@@ -23,13 +23,13 @@ const TemplateRow = ({ template }: { template: EmailTemplate }) => {
   const { mutate: deleteTemplate, isPending } = useDeleteEmailTemplate();
 
   return (
-    <HStack className="items-center justify-between rounded-lg border border-border bg-card p-4 transition-colors hover:bg-muted">
+    <HStack className="border-border bg-card hover:bg-muted items-center justify-between rounded-lg border p-4 transition-colors">
       <HStack className="gap-3">
-        <Box className="flex size-9 items-center justify-center rounded-md bg-muted">
-          <LuMail className="size-4 text-primary" />
+        <Box className="bg-muted flex size-9 items-center justify-center rounded-md">
+          <LuMail className="text-primary size-4" />
         </Box>
         <VStack className="gap-0.5">
-          <TypographyP className="text-sm font-medium text-foreground">{template.name}</TypographyP>
+          <TypographyP className="text-foreground text-sm font-medium">{template.name}</TypographyP>
           <TypographyMuted className="text-xs">{template.subject}</TypographyMuted>
         </VStack>
       </HStack>
@@ -50,7 +50,7 @@ const TemplateRow = ({ template }: { template: EmailTemplate }) => {
           size="sm"
           onClick={() => deleteTemplate(template.id)}
           isLoading={isPending}
-          className="size-8 p-0 text-destructive hover:text-destructive/80"
+          className="text-destructive hover:text-destructive/80 size-8 p-0"
         >
           <LuTrash2 className="size-3.5" />
         </Button>
@@ -66,7 +66,7 @@ export const EmailTemplateList = () => {
     return (
       <VStack className="gap-2">
         {Array.from({ length: 3 }).map((_, i) => (
-          <Box key={i} className="h-16 animate-pulse rounded-lg bg-muted" />
+          <Box key={i} className="bg-muted h-16 animate-pulse rounded-lg" />
         ))}
       </VStack>
     );
@@ -74,7 +74,7 @@ export const EmailTemplateList = () => {
 
   if (error || data?.error) {
     return (
-      <Box className="rounded-lg border border-destructive/50 bg-destructive/10 p-4">
+      <Box className="border-destructive/50 bg-destructive/10 rounded-lg border p-4">
         <TypographyMuted className="text-destructive">
           {data?.error ?? 'Failed to load templates'}
         </TypographyMuted>
@@ -86,9 +86,9 @@ export const EmailTemplateList = () => {
 
   if (templates.length === 0) {
     return (
-      <Box className="flex flex-col items-center justify-center rounded-lg border border-dashed border-border py-12">
-        <LuMail className="mb-3 size-8 text-muted-foreground" />
-        <TypographyP className="text-sm font-medium text-foreground">No templates yet</TypographyP>
+      <Box className="border-border flex flex-col items-center justify-center rounded-lg border border-dashed py-12">
+        <LuMail className="text-muted-foreground mb-3 size-8" />
+        <TypographyP className="text-foreground text-sm font-medium">No templates yet</TypographyP>
         <TypographyMuted className="mt-1 text-xs">
           Create your first email template to get started
         </TypographyMuted>

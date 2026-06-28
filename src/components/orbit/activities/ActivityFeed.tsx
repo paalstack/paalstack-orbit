@@ -142,7 +142,7 @@ export const ActivityFeed = ({ leadId }: ActivityFeedProps) => {
                 {...form.register('note')}
                 rows={3}
                 placeholder="Add a note..."
-                className="w-full resize-none rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:ring-1 focus:ring-primary focus:outline-none"
+                className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:ring-primary w-full resize-none rounded-md border px-3 py-2 text-sm focus:ring-1 focus:outline-none"
               />
               {form.formState.errors.note && (
                 <TypographySmall className="text-destructive">
@@ -163,7 +163,7 @@ export const ActivityFeed = ({ leadId }: ActivityFeedProps) => {
                   type="submit"
                   size="sm"
                   disabled={isPending}
-                  className="cursor-pointer bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer"
                 >
                   {isPending ? 'Saving...' : 'Save'}
                 </Button>
@@ -173,9 +173,7 @@ export const ActivityFeed = ({ leadId }: ActivityFeedProps) => {
         </Card>
       )}
 
-      {isLoading && (
-        <TypographyMuted>Loading activities...</TypographyMuted>
-      )}
+      {isLoading && <TypographyMuted>Loading activities...</TypographyMuted>}
       {!isLoading && activities.length === 0 && (
         <TypographyMuted>No activities yet.</TypographyMuted>
       )}
@@ -194,16 +192,16 @@ export const ActivityFeed = ({ leadId }: ActivityFeedProps) => {
               <HStack key={activity.id} className="items-start gap-3">
                 <VStack className="items-center gap-0">
                   <Box
-                    className={`mt-0.5 rounded-full border border-border bg-card p-1.5 ${colorClass}`}
+                    className={`border-border bg-card mt-0.5 rounded-full border p-1.5 ${colorClass}`}
                   >
                     <Icon className="size-3.5" />
                   </Box>
                   {!isLast && (
-                    <Box className="w-px flex-1 bg-border" style={{ minHeight: '1.5rem' }} />
+                    <Box className="bg-border w-px flex-1" style={{ minHeight: '1.5rem' }} />
                   )}
                 </VStack>
                 <Box className="pb-4">
-                  <TypographyP className="text-sm text-foreground">{activity.note}</TypographyP>
+                  <TypographyP className="text-foreground text-sm">{activity.note}</TypographyP>
                   <TypographyMuted className="mt-0.5 text-xs">
                     {activityWithCreator.creator?.full_name ??
                       activityWithCreator.creator?.email ??

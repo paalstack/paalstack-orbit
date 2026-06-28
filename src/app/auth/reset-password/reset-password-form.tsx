@@ -1,10 +1,9 @@
 'use client';
 
-import { useState } from 'react';
-
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button, Card, Form, toast } from '@paalstack/react-ui';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -34,7 +33,10 @@ export const ResetPasswordForm = () => {
   const handleSubmit = async (values: ResetPasswordFormValues) => {
     const supabase = createBrowserSupabaseClient();
     const { error } = await supabase.auth.updateUser({ password: values.password });
-    if (error) { toast.error(error.message); return; }
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
     setDone(true);
     setTimeout(() => router.push('/auth/login'), 2000);
   };
@@ -86,12 +88,7 @@ export const ResetPasswordForm = () => {
         ]}
         hideResetButton
         SubmitButton={({ isSubmitting, onFormSubmit }) => (
-          <Button
-            type="submit"
-            onClick={onFormSubmit}
-            isLoading={isSubmitting}
-            className="w-full"
-          >
+          <Button type="submit" onClick={onFormSubmit} isLoading={isSubmitting} className="w-full">
             {isSubmitting ? 'Updating…' : 'Update password'}
           </Button>
         )}

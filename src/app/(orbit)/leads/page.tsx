@@ -16,7 +16,10 @@ const LeadsPage = async () => {
     <Box>
       <HStack className="mb-6 justify-between">
         <TypographyH1 className="text-foreground">Leads</TypographyH1>
-        <Button asChild className="cursor-pointer bg-primary text-primary-foreground hover:bg-primary/90">
+        <Button
+          asChild
+          className="bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer"
+        >
           <Link href="/leads/new">
             <LuPlus className="mr-2 size-4" />
             New Lead

@@ -16,14 +16,14 @@ const OrbitError = ({ error, reset }: ErrorProps) => {
   return (
     <Box className="flex min-h-[60vh] flex-col items-center justify-center gap-6 py-12">
       <Box className="flex flex-col items-center gap-2 text-center">
-        <TypographyH2 className="text-2xl font-bold text-foreground">
+        <TypographyH2 className="text-foreground text-2xl font-bold">
           Something went wrong
         </TypographyH2>
-        <TypographyP className="max-w-md text-sm text-muted-foreground">{error.message}</TypographyP>
+        <TypographyP className="text-muted-foreground max-w-md text-sm">
+          {error.message}
+        </TypographyP>
         {error.digest && (
-          <TypographyMuted className="font-mono text-xs">
-            Error ID: {error.digest}
-          </TypographyMuted>
+          <TypographyMuted className="font-mono text-xs">Error ID: {error.digest}</TypographyMuted>
         )}
       </Box>
       <Button onClick={reset} className="bg-primary text-primary-foreground hover:bg-primary/90">

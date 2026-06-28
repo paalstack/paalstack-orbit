@@ -37,19 +37,19 @@ export const OrbitSidebar = () => {
     <Box
       as="aside"
       className={cn(
-        'relative flex flex-col border-r border-border bg-card transition-all duration-200',
+        'border-border bg-card relative flex flex-col border-r transition-all duration-200',
         expanded ? 'w-60' : 'w-16'
       )}
       onMouseEnter={() => setExpanded(true)}
       onMouseLeave={() => setExpanded(false)}
     >
-      <Box className="flex h-16 items-center justify-center border-b border-border px-4">
+      <Box className="border-border flex h-16 items-center justify-center border-b px-4">
         {expanded ? (
-          <TypographySmall className="font-semibold tracking-widest text-primary">
+          <TypographySmall className="text-primary font-semibold tracking-widest">
             ORBIT
           </TypographySmall>
         ) : (
-          <Box className="size-6 rounded bg-primary" />
+          <Box className="bg-primary size-6 rounded" />
         )}
       </Box>
 

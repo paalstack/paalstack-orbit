@@ -47,7 +47,9 @@ export const LeadsByStatusChart = ({ data }: LeadsByStatusChartProps) => {
             />
             <Legend
               formatter={(value: string) => (
-                <TypographyH3 className="inline text-xs text-muted-foreground">{value}</TypographyH3>
+                <TypographyH3 className="text-muted-foreground inline text-xs">
+                  {value}
+                </TypographyH3>
               )}
             />
           </PieChart>

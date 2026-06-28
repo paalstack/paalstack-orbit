@@ -119,7 +119,7 @@ export const WorkflowRuleForm = () => {
             }}
           />
 
-          <Box className="rounded-lg border border-border bg-card p-4">
+          <Box className="border-border bg-card rounded-lg border p-4">
             <TypographyMuted className="mb-3 text-xs tracking-wider uppercase">
               Condition
             </TypographyMuted>

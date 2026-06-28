@@ -1,10 +1,9 @@
 'use client';
 
-import { useState } from 'react';
-
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Alert, Button, Card, Form, Separator, Text, toast } from '@paalstack/react-ui';
+import { Button, Card, Form, Separator, Text, toast } from '@paalstack/react-ui';
 import Link from 'next/link';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { createBrowserSupabaseClient } from '@/libs/supabase';
@@ -28,7 +27,10 @@ export const SignupForm = () => {
         emailRedirectTo: `${window.location.origin}/auth/callback`,
       },
     });
-    if (error) { toast.error(error.message); return; }
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
     setConfirmedEmail(values.email);
   };
 

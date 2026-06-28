@@ -1,5 +1,6 @@
-import { createClient as createServerSupabaseClient } from '@/libs/supabase/server';
 import { NextResponse, type NextRequest } from 'next/server';
+
+import { createClient as createServerSupabaseClient } from '@/libs/supabase/server';
 
 /**
  * Supabase email verification callback.

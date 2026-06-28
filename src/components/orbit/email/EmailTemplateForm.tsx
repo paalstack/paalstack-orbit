@@ -26,7 +26,7 @@ export const EmailTemplateForm = ({
 
   return (
     <VStack className="gap-4">
-      <Box className="rounded-md bg-muted p-3">
+      <Box className="bg-muted rounded-md p-3">
         <TypographyMuted className="text-xs">
           Available variables: {'{{lead_name}}'}, {'{{company}}'}, {'{{status}}'}
         </TypographyMuted>
@@ -46,7 +46,7 @@ export const EmailTemplateForm = ({
               type="submit"
               onClick={onFormSubmit}
               disabled={isSubmitting}
-              className="inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-60"
+              className="bg-primary text-primary-foreground inline-flex items-center rounded-md px-4 py-2 text-sm font-medium transition-opacity hover:opacity-90 disabled:opacity-60"
             >
               {isSubmitting ? 'Saving…' : 'Save Template'}
             </button>

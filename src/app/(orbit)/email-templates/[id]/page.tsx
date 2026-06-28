@@ -51,10 +51,10 @@ const EditEmailTemplatePage = ({ params }: PageProps) => {
 
   if (isLoading) {
     return (
-      <Box className="min-h-screen bg-background p-6">
+      <Box className="bg-background min-h-screen p-6">
         <VStack className="mx-auto max-w-2xl gap-4">
           {Array.from({ length: 4 }).map((_, i) => (
-            <Box key={i} className="h-10 animate-pulse rounded-md bg-muted" />
+            <Box key={i} className="bg-muted h-10 animate-pulse rounded-md" />
           ))}
         </VStack>
       </Box>
@@ -63,7 +63,7 @@ const EditEmailTemplatePage = ({ params }: PageProps) => {
 
   if (!template) {
     return (
-      <Box className="min-h-screen bg-background p-6">
+      <Box className="bg-background min-h-screen p-6">
         <VStack className="mx-auto max-w-2xl items-center gap-4 py-20">
           <TypographyMuted>Template not found.</TypographyMuted>
           <Button asChild variant="outline">
@@ -75,7 +75,7 @@ const EditEmailTemplatePage = ({ params }: PageProps) => {
   }
 
   return (
-    <Box className="min-h-screen bg-background p-6">
+    <Box className="bg-background min-h-screen p-6">
       <VStack className="mx-auto max-w-2xl gap-6">
         <HStack className="items-center gap-3">
           <Button asChild variant="ghost" size="sm" className="p-0">
@@ -84,7 +84,7 @@ const EditEmailTemplatePage = ({ params }: PageProps) => {
             </Link>
           </Button>
           <VStack className="gap-0.5">
-            <TypographyH1 className="text-2xl font-semibold text-foreground">
+            <TypographyH1 className="text-foreground text-2xl font-semibold">
               Edit Template
             </TypographyH1>
             <TypographyMuted className="text-sm">{template.name}</TypographyMuted>

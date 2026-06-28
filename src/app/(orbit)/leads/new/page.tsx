@@ -9,7 +9,7 @@ export const metadata = {
 const NewLeadPage = () => {
   return (
     <Box className="mx-auto max-w-2xl">
-      <TypographyH1 className="mb-6 text-foreground">New Lead</TypographyH1>
+      <TypographyH1 className="text-foreground mb-6">New Lead</TypographyH1>
       <LeadForm />
     </Box>
   );

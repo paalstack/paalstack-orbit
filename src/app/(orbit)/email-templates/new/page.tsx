@@ -32,7 +32,7 @@ const NewEmailTemplatePage = () => {
   };
 
   return (
-    <Box className="min-h-screen bg-background p-6">
+    <Box className="bg-background min-h-screen p-6">
       <VStack className="mx-auto max-w-2xl gap-6">
         <HStack className="items-center gap-3">
           <Button asChild variant="ghost" size="sm" className="p-0">
@@ -41,7 +41,7 @@ const NewEmailTemplatePage = () => {
             </Link>
           </Button>
           <VStack className="gap-0.5">
-            <TypographyH1 className="text-2xl font-semibold text-foreground">
+            <TypographyH1 className="text-foreground text-2xl font-semibold">
               New Email Template
             </TypographyH1>
             <TypographyMuted className="text-sm">

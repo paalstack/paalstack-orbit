@@ -31,18 +31,20 @@ const RuleRow = ({ rule }: { rule: WorkflowRule }) => {
   const { mutate: del, isPending: deleting } = useDeleteWorkflowRule();
 
   return (
-    <HStack className="items-center justify-between rounded-lg border border-border bg-card p-4 transition-colors hover:bg-muted">
+    <HStack className="border-border bg-card hover:bg-muted items-center justify-between rounded-lg border p-4 transition-colors">
       <HStack className="gap-3">
-        <Box className="flex size-9 items-center justify-center rounded-md bg-muted">
-          <LuWorkflow className="size-4 text-primary" />
+        <Box className="bg-muted flex size-9 items-center justify-center rounded-md">
+          <LuWorkflow className="text-primary size-4" />
         </Box>
         <VStack className="gap-0.5">
-          <TypographyP className="text-sm font-medium text-foreground">{rule.name}</TypographyP>
+          <TypographyP className="text-foreground text-sm font-medium">{rule.name}</TypographyP>
           <HStack className="gap-2">
             <Badge variant="outline" className="text-xs">
               {rule.trigger_event}
             </Badge>
-            <TypographySmall className="text-muted-foreground">{conditionSummary(rule)}</TypographySmall>
+            <TypographySmall className="text-muted-foreground">
+              {conditionSummary(rule)}
+            </TypographySmall>
             <Badge
               variant="outline"
               className={
@@ -70,7 +72,7 @@ const RuleRow = ({ rule }: { rule: WorkflowRule }) => {
             del(rule.id);
           }}
           isLoading={deleting}
-          className="size-8 p-0 text-destructive hover:text-destructive/80"
+          className="text-destructive hover:text-destructive/80 size-8 p-0"
         >
           <LuTrash2 className="size-3.5" />
         </Button>
@@ -86,7 +88,7 @@ export const WorkflowRuleList = () => {
     return (
       <VStack className="gap-2">
         {Array.from({ length: 3 }).map((_, i) => (
-          <Box key={i} className="h-16 animate-pulse rounded-lg bg-muted" />
+          <Box key={i} className="bg-muted h-16 animate-pulse rounded-lg" />
         ))}
       </VStack>
     );
@@ -94,7 +96,7 @@ export const WorkflowRuleList = () => {
 
   if (error || data?.error) {
     return (
-      <Box className="rounded-lg border border-destructive/50 bg-destructive/10 p-4">
+      <Box className="border-destructive/50 bg-destructive/10 rounded-lg border p-4">
         <TypographyMuted className="text-destructive">
           {data?.error ?? 'Failed to load workflow rules'}
         </TypographyMuted>
@@ -106,9 +108,9 @@ export const WorkflowRuleList = () => {
 
   if (rules.length === 0) {
     return (
-      <Box className="flex flex-col items-center justify-center rounded-lg border border-dashed border-border py-12">
-        <LuWorkflow className="mb-3 size-8 text-muted-foreground" />
-        <TypographyP className="text-sm font-medium text-foreground">
+      <Box className="border-border flex flex-col items-center justify-center rounded-lg border border-dashed py-12">
+        <LuWorkflow className="text-muted-foreground mb-3 size-8" />
+        <TypographyP className="text-foreground text-sm font-medium">
           No workflow rules yet
         </TypographyP>
         <TypographyMuted className="mt-1 text-xs">

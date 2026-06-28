@@ -1,10 +1,9 @@
 'use client';
 
-import { useState } from 'react';
-
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button, Card, Form, Separator, Text, toast } from '@paalstack/react-ui';
 import Link from 'next/link';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { createBrowserSupabaseClient } from '@/libs/supabase';
@@ -23,7 +22,10 @@ export const ForgotPasswordForm = () => {
     const { error } = await supabase.auth.resetPasswordForEmail(values.email, {
       redirectTo: `${window.location.origin}/auth/reset-password`,
     });
-    if (error) { toast.error(error.message); return; }
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
     setSubmittedEmail(values.email);
   };
 

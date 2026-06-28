@@ -90,7 +90,7 @@ export const LeadForm = ({ lead }: LeadFormProps) => {
   return (
     <Card contentClassName="p-6">
       <VStack className="gap-6">
-        <TypographyH2 className="text-lg font-semibold text-foreground">
+        <TypographyH2 className="text-foreground text-lg font-semibold">
           {isEditing ? 'Edit Lead' : 'New Lead'}
         </TypographyH2>
 
@@ -159,7 +159,7 @@ export const LeadForm = ({ lead }: LeadFormProps) => {
                 type="submit"
                 onClick={onFormSubmit}
                 disabled={isBusy}
-                className="cursor-pointer rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 disabled:opacity-50"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer rounded-md px-4 py-2 text-sm font-medium disabled:opacity-50"
               >
                 {label}
               </button>

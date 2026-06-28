@@ -121,37 +121,37 @@ export const LeadTableClient = ({ initialData }: LeadTableClientProps) => {
       <Card contentClassName="p-0" className="overflow-hidden">
         <Box className="overflow-x-auto">
           <Box as="table" className="w-full text-sm">
-            <Box as="thead" className="border-b border-border">
+            <Box as="thead" className="border-border border-b">
               <Box as="tr">
-                <Box as="th" className="px-4 py-3 text-left font-medium text-muted-foreground">
+                <Box as="th" className="text-muted-foreground px-4 py-3 text-left font-medium">
                   Name
                 </Box>
-                <Box as="th" className="px-4 py-3 text-left font-medium text-muted-foreground">
+                <Box as="th" className="text-muted-foreground px-4 py-3 text-left font-medium">
                   Company
                 </Box>
-                <Box as="th" className="px-4 py-3 text-left font-medium text-muted-foreground">
+                <Box as="th" className="text-muted-foreground px-4 py-3 text-left font-medium">
                   Status
                 </Box>
                 <Box
                   as="th"
-                  className="cursor-pointer px-4 py-3 text-left font-medium text-muted-foreground hover:text-foreground"
+                  className="text-muted-foreground hover:text-foreground cursor-pointer px-4 py-3 text-left font-medium"
                   onClick={() => handleSort('value')}
                 >
                   Value
                   <SortIcon field="value" sortField={sortField} sortAsc={sortAsc} />
                 </Box>
-                <Box as="th" className="px-4 py-3 text-left font-medium text-muted-foreground">
+                <Box as="th" className="text-muted-foreground px-4 py-3 text-left font-medium">
                   Assigned To
                 </Box>
                 <Box
                   as="th"
-                  className="cursor-pointer px-4 py-3 text-left font-medium text-muted-foreground hover:text-foreground"
+                  className="text-muted-foreground hover:text-foreground cursor-pointer px-4 py-3 text-left font-medium"
                   onClick={() => handleSort('created_at')}
                 >
                   Created
                   <SortIcon field="created_at" sortField={sortField} sortAsc={sortAsc} />
                 </Box>
-                <Box as="th" className="px-4 py-3 text-left font-medium text-muted-foreground">
+                <Box as="th" className="text-muted-foreground px-4 py-3 text-left font-medium">
                   Actions
                 </Box>
               </Box>
@@ -159,11 +159,7 @@ export const LeadTableClient = ({ initialData }: LeadTableClientProps) => {
             <Box as="tbody">
               {filtered.length === 0 ? (
                 <Box as="tr">
-                  <Box
-                    as="td"
-                    className="px-4 py-8 text-center"
-                    style={{ gridColumn: 'span 7' }}
-                  >
+                  <Box as="td" className="px-4 py-8 text-center" style={{ gridColumn: 'span 7' }}>
                     <TypographyMuted>No leads found</TypographyMuted>
                   </Box>
                 </Box>
@@ -172,10 +168,10 @@ export const LeadTableClient = ({ initialData }: LeadTableClientProps) => {
                   <Box
                     as="tr"
                     key={lead.id}
-                    className="border-b border-border last:border-0 hover:bg-muted/40"
+                    className="border-border hover:bg-muted/40 border-b last:border-0"
                   >
                     <Box as="td" className="px-4 py-3">
-                      <TypographyP className="font-medium text-foreground">{lead.name}</TypographyP>
+                      <TypographyP className="text-foreground font-medium">{lead.name}</TypographyP>
                     </Box>
                     <Box as="td" className="px-4 py-3">
                       <TypographyMuted>{lead.company ?? '—'}</TypographyMuted>
@@ -200,12 +196,7 @@ export const LeadTableClient = ({ initialData }: LeadTableClientProps) => {
                     </Box>
                     <Box as="td" className="px-4 py-3">
                       <HStack className="gap-2">
-                        <Button
-                          asChild
-                          variant="ghost"
-                          size="sm"
-                          className="cursor-pointer"
-                        >
+                        <Button asChild variant="ghost" size="sm" className="cursor-pointer">
                           <Link href={`/leads/${lead.id}`}>
                             <LuEye className="size-4" />
                           </Link>
@@ -213,7 +204,7 @@ export const LeadTableClient = ({ initialData }: LeadTableClientProps) => {
                         <Button
                           variant="ghost"
                           size="sm"
-                          className="cursor-pointer text-destructive hover:text-destructive/80"
+                          className="text-destructive hover:text-destructive/80 cursor-pointer"
                           disabled={isDeleting}
                           onClick={() => {
                             deleteLead(lead.id);
