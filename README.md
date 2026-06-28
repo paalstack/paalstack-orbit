@@ -16,7 +16,7 @@
 
 **Orbit** is a production-grade internal CRM and workflow automation application. It provides teams with the tools to manage leads through their full lifecycle, automate follow-up workflows, track activity timelines, collaborate on team assignments, and send transactional emails — all from a single, fast dashboard.
 
-Built on the [PaalStack Next.js Starter](https://github.com/paalamugan/paalstack-nextjs-starter) foundation, Orbit ships with strict TypeScript, server-first data fetching, Row Level Security, CI/CD pipelines, and a battle-tested testing setup out of the box.
+Built on the [PaalStack Next.js Starter](https://github.com/paalstack/paalstack-nextjs-starter) foundation, Orbit ships with strict TypeScript, server-first data fetching, Row Level Security, CI/CD pipelines, and a battle-tested testing setup out of the box.
 
 ---
 
