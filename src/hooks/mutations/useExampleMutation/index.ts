@@ -1,1 +1,0 @@
-export { useCreateExampleMutation } from './hook';

@@ -1,6 +1,7 @@
 import { cn } from '@paalstack/react-ui/lib';
 import { type Metadata, type Viewport } from 'next';
 import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
+import NextTopLoader from 'nextjs-toploader';
 import { type ReactNode } from 'react';
 
 import { Providers } from '@/providers';
@@ -61,6 +62,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn(inter.variable, plusJakartaSans.variable, 'antialiased')}>
+        <NextTopLoader showSpinner={false} height={5} />
         <Providers>{children}</Providers>
       </body>
     </html>
